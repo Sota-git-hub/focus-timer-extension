@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Custom Focus Timer",
+  "version": "1.1",
+  "description": "集中と休憩を切り替えるワークサイクルタイマー",
+  "permissions": ["notifications"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "icon.png"
+  }
+}

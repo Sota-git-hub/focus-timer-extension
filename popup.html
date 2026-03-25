@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { width: 280px; text-align: center; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 15px; background: #f8f9fa; }
+    .status-label { font-size: 0.9rem; color: #666; margin-bottom: 5px; }
+    #timer { font-size: 3.5rem; font-weight: bold; margin: 5px 0; color: #333; font-variant-numeric: tabular-nums; }
+    input[type="number"] { width: 60px; padding: 8px; font-size: 1.1rem; border: 1px solid #ddd; border-radius: 4px; }
+    
+    .button-group { display: flex; gap: 5px; margin-top: 10px; flex-wrap: wrap; }
+    button { cursor: pointer; padding: 10px; border: none; border-radius: 5px; color: white; font-weight: bold; flex: 1; transition: opacity 0.2s; }
+    button:disabled { background-color: #ccc; cursor: not-allowed; }
+    button:hover { opacity: 0.9; }
+
+    .btn-start { background-color: #27ae60; }
+    .btn-pause { background-color: #f39c12; }
+    .btn-reset { background-color: #7f8c8d; }
+    .btn-stop { background-color: #e74c3c; width: 100%; }
+    .btn-break { background-color: #3498db; width: 100%; }
+    .btn-detach { background-color: #ffffff; color: #666; border: 1px solid #ddd; font-size: 0.7rem; margin-top: 15px; }
+    
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div id="setup-area">
+    <div class="status-label">集中する時間(分)</div>
+    <input type="number" id="focusInput" value="25" min="1" max="999">
+    <div class="button-group">
+      <button id="startBtn" class="btn-start">スタート</button>
+    </div>
+  </div>
+
+  <div id="timer-area" class="hidden">
+    <div id="mode-text" class="status-label">集中タイム</div>
+    <div id="timer">00:00</div>
+    <div class="button-group">
+      <button id="pauseBtn" class="btn-pause">一時停止</button>
+      <button id="resumeBtn" class="btn-start hidden">再開</button>
+      <button id="resetBtn" class="btn-reset">リセット</button>
+    </div>
+    <button id="stopAlarmBtn" class="btn-stop hidden">アラームを止める</button>
+    <button id="startBreakBtn" class="btn-break hidden">5分休憩を始める</button>
+  </div>
+
+  <!-- ウィンドウとして切り離すボタン -->
+  <button id="detachBtn" class="btn-detach">別のウィンドウで開く</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
